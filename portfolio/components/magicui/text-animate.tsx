@@ -33,7 +33,7 @@ interface TextAnimateProps extends MotionProps {
   /**
    * The delay before the animation starts
    */
-  // delay?: number;
+  delay?: number;
   /**
    * The duration of the animation
    */

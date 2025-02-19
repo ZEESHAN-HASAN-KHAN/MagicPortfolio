@@ -19,8 +19,8 @@ export default async function Projects() {
         Check out my latest work
       </h2>
       <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-        I've worked on a variety of projects, from simple websites to complex
-        web applications. Here are a few of my favorites.
+        I&apos;ve worked on a variety of projects, from simple websites to
+        complex web applications. Here are a few of my favorites.
       </p>
       <p>Here&apos;s a list of my projects:</p>
       <div className="mt-4 grid grid-col-1 gap-4 lg:grid lg:grid-cols-2 ">

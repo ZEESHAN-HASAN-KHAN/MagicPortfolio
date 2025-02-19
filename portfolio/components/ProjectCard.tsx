@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Globe } from "lucide-react";
-import Image from "next/image";
 
 interface ProjectCardProps {
   projectId: string;
