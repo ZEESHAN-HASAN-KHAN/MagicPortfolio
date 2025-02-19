@@ -10,6 +10,7 @@ import {
 import { Globe } from "lucide-react";
 
 interface ProjectCardProps {
+  key: any;
   title: string;
   subtitle: string;
   description: string;
@@ -21,6 +22,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({
+  key,
   title,
   subtitle,
   description,
@@ -33,7 +35,7 @@ export function ProjectCard({
   console.log("ProjectCard image prop:", image); // Log the image prop
 
   return (
-    <Card className="w-full max-w-2xl overflow-hidden">
+    <Card key={key} className="w-full max-w-2xl overflow-hidden">
       <CardHeader className="space-y-4">
         <div className="flex items-start justify-between">
           <img src={image} alt={`${title} image`} className="w-full" />

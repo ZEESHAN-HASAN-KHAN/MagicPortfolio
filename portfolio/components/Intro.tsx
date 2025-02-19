@@ -18,7 +18,7 @@ export default function Intro() {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 ">
           <h1 className="text-4xl  sm:text-5xl md:text-6xl font-bold tracking-tight">
-            Hi, I'm
+            Hi, I&apos;m
           </h1>
           <h1 className="text-4xl  sm:text-5xl md:text-6xl font-bold tracking-tight">
             <AuroraText className="ml-2"> Zeeshan Khan </AuroraText>
@@ -32,9 +32,10 @@ export default function Intro() {
             className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl "
             animation="blurIn"
             as="p"
+            delay={10}
           >
             Software Engineer with a passion for building impactful web
-            solutions. Always learning, always creating
+            solutions. Always learning, always creating.
           </TextAnimate>
         </div>
       </div>

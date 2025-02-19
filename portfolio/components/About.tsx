@@ -4,7 +4,7 @@ export default function About() {
       <h2 className="text-2xl lg:text-4xl font-bold mb-6">About Me</h2>
       <div className="space-y-4 text-lg text-muted-foreground">
         <p>
-          I'm a dedicated software engineer currently working at{" "}
+          I&apos;m a dedicated software engineer currently working at{" "}
           <a
             href="#"
             className="underline font-medium text-foreground hover:text-muted-foreground transition-colors"
@@ -19,7 +19,7 @@ export default function About() {
           .
         </p>
         <p>
-          At CGI, I've contributed to projects involving{" "}
+          At CGI, I&apos;ve contributed to projects involving{" "}
           <span className="font-medium text-foreground">
             ServiceNow UI development, workflow automation, email notifications,
             SLA management, and catalog item creation
@@ -31,10 +31,10 @@ export default function About() {
           , enabling me to develop full-stack solutions.
         </p>
         <p>
-          I'm always eager to learn new technologies, work on innovative
-          projects, and collaborate with like-minded professionals. Whether it's
-          optimizing workflows or building user-friendly applications, I strive
-          to create impactful solutions.
+          I&apos;m always eager to learn new technologies, work on innovative
+          projects, and collaborate with like-minded professionals. Whether
+          it&apos;s optimizing workflows or building user-friendly applications,
+          I strive to create impactful solutions.
         </p>
       </div>
     </div>
