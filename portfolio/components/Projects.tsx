@@ -22,6 +22,7 @@ export default async function Projects() {
         I've worked on a variety of projects, from simple websites to complex
         web applications. Here are a few of my favorites.
       </p>
+      <p>Here&apos;s a list of my projects:</p>
       <div className="mt-4 grid grid-col-1 gap-4 lg:grid lg:grid-cols-2 ">
         {projects.map((project) => (
           <ProjectCard
@@ -34,6 +35,7 @@ export default async function Projects() {
             technologies={project.technologies}
             website={project.website}
             image={project.image}
+            projectId={project._id}
           />
         ))}
       </div>

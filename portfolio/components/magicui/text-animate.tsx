@@ -33,7 +33,7 @@ interface TextAnimateProps extends MotionProps {
   /**
    * The delay before the animation starts
    */
-  delay?: number;
+  // delay?: number;
   /**
    * The duration of the animation
    */
@@ -106,11 +106,10 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, y: 20 },
-      show: (delay: number) => ({
+      show: () => ({
         opacity: 1,
         y: 0,
         transition: {
-          delay,
           duration: 0.3,
         },
       }),
@@ -144,7 +143,7 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, filter: "blur(10px)", y: 20 },
-      show: (delay: number) => ({
+      show: () => ({
         opacity: 1,
         filter: "blur(0px)",
         y: 0,
@@ -170,7 +169,7 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, filter: "blur(10px)", y: -20 },
-      show: (delay: number) => ({
+      show: () => ({
         opacity: 1,
         filter: "blur(0px)",
         y: 0,
@@ -186,11 +185,10 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { y: 20, opacity: 0 },
-      show: (delay: number) => ({
+      show: () => ({
         y: 0,
         opacity: 1,
         transition: {
-          delay,
           duration: 0.3,
         },
       }),
@@ -278,11 +276,10 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { scale: 1.5, opacity: 0 },
-      show: (delay: number) => ({
+      show: () => ({
         scale: 1,
         opacity: 1,
         transition: {
-          delay,
           duration: 0.3,
           scale: {
             type: "spring",

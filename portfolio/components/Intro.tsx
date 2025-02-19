@@ -32,7 +32,6 @@ export default function Intro() {
             className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl "
             animation="blurIn"
             as="p"
-            delay={10}
           >
             Software Engineer with a passion for building impactful web
             solutions. Always learning, always creating.
