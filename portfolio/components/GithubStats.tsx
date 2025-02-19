@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -20,48 +20,56 @@ async function getData(year: string) {
     if (!response.ok) throw new Error("Failed to fetch data");
 
     const result = await response.json();
-    return result?.contributions?.length ? result.contributions : null;
+    return result?.contributions?.length ? result.contributions : [];
   } catch (error) {
     console.error("Error fetching data:", error);
-    return null;
+    return [];
   }
 }
 
-function CalendarWrapper({ data }: { data: any[] }) {
+function CalendarWrapper({ data }: { data: Contribution[] }) {
   return (
-    <ActivityCalendar
-      data={data}
-      theme={{
-        light: ["#f0f0f0", "#a3d9a5", "#6bbf73", "#3a8f3c", "#6bbf73"],
-        dark: ["#383838", "#4D455D", "#7DB9B6", "#F5E9CF", "#E96479"],
-      }}
-      labels={{
-        legend: { less: "Less", more: "More" },
-        months: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        weekdays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        totalCount: "{{count}} contributions in {{year}}",
-      }}
-      hideTotalCount
-    />
+    <div className="w-full">
+      <ActivityCalendar
+        data={data}
+        theme={{
+          light: ["#E0E0E0", "#d4f8d4", "#90d490", "#4cb04c", "#006400"],
+          dark: ["#E0E0E0", "#d4f8d4", "#90d490", "#4cb04c", "#006400"],
+        }}
+        labels={{
+          legend: { less: "Less", more: "More" },
+          months: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          weekdays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+          totalCount: "{{count}} contributions in {{year}}",
+        }}
+        hideTotalCount
+      />
+    </div>
   );
+}
+
+interface Contribution {
+  date: string;
+  count: number;
+  level: number;
 }
 
 export function GithubStats() {
   const [year, setYear] = useState(String(new Date().getFullYear()));
-  const [data, setData] = useState<any[] | null>(null);
+  const [data, setData] = useState<Contribution[] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -98,14 +106,33 @@ export function GithubStats() {
         </Select>
       </div>
       <Card className="w-full mt-5">
-        <CardContent className="overflow-x-auto p-6">
-          <div className="flex flex-col justify-center">
+        <CardContent className="overflow-x-auto p-6 w-full">
+          <div className="flex flex-col justify-center w-full">
             {loading ? (
-              <div>Loading...</div>
+              <div className="flex items-center justify-center">
+                <svg
+                  className="animate-spin h-6 w-6 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8H4z"
+                  ></path>
+                </svg>
+              </div>
             ) : data ? (
-              <Suspense fallback={<div>Loading...</div>}>
-                <CalendarWrapper data={data} />
-              </Suspense>
+              <CalendarWrapper data={data} />
             ) : (
               <div className="text-center text-gray-500">
                 No contributions found for {year}.

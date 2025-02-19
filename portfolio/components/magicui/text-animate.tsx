@@ -302,9 +302,6 @@ const defaultItemAnimationVariants: Record<
 
 export function TextAnimate({
   children,
-  delay = 0,
-  duration = 0.3,
-  variants,
   className,
   segmentClassName,
   as: Component = "p",
@@ -375,7 +372,7 @@ export function TextAnimate({
             custom={i * staggerTimings[by]}
             className={cn(
               by === "line" ? "block" : "inline-block whitespace-pre",
-              segmentClassName,
+              segmentClassName
             )}
           >
             {segment}
